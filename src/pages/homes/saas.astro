@@ -7,6 +7,8 @@ import Features from '~/components/widgets/Features.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Content from '~/components/widgets/Content.astro';
 import Pricing from '~/components/widgets/Pricing.astro';
+import { Image } from 'astro:assets';
+import hvacImage from 'src/assets/images/cowboyside.png';
 
 import { headerData } from '~/navigation';
 import FAQs from '~/components/widgets/FAQs.astro';
@@ -37,39 +39,75 @@ const metadata = {
     />
   </Fragment>
 
-  <!-- Hero2 Widget ******************* -->
+  <!-- Hero.astro or inside your page -->
+<section
+  class="bg-[#F7E6CE] text-[#3A2B1C] py-16 px-4 sm:px-8 lg:px-20 bg-[url('/src/assets/images/paper-texture.png')] bg-cover bg-blend-multiply"
+>
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+    
+    <!-- Left Column: Text -->
+    <div class="order-2 lg:order-1 space-y-6 text-center lg:text-left" data-aos="fade-up" data-aos-duration="800">
+      <!-- Texas Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#8B2E1A] text-white rounded-full shadow-md text-xs uppercase tracking-widest">
+        <span class="text-lg">★</span>
+        Fort Worth Proud • Est. 2013
+      </div>
 
-  <Hero2
-    tagline="SaaS Web Demo"
-    actions={[
-      { variant: 'primary', target: '_blank', text: 'Get Started', href: 'https://github.com/onwidget/astrowind' },
-      { text: 'Learn more', href: '#features' },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'AstroWind Hero Image',
-    }}
-  >
-    <Fragment slot="title">
-      Simplify web design with Astrowind: <br /> your ultimate <span class="text-accent dark:text-white"
-        >SaaS</span
-      > companion<br />
-    </Fragment>
+      <!-- Heading -->
+      <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight text-shadow-md">
+        Fort Worth <br />
+        <span style="color: #8B2E1A">Heat</span> And  <span class="text-blue-800">Air</span>
+      </h1>
 
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        Elevate your website creation process with <span class="font-semibold">AstroWind</span>'s SaaS solutions.</span
-      >
-      Seamlessly blend the power of Astro 5.0 and Tailwind CSS to craft websites that resonate with your brand and audience.
-    </Fragment>
-  </Hero2>
+      <!-- Paragraph -->
+      <p class="text-lg sm:text-2xl text-[#3A2B1C]/90">
+        Serving the Fort Worth community with honest, expert HVAC care.
+Local Air Conditioning and Heating Solutions – Fast, Friendly, and Fair.
+      </p>
+
+      <!-- Call to Action Buttons -->
+      <div class="flex gap-4 flex-wrap justify-center lg:justify-start">
+        <a
+          href="#contact"
+          class="bg-[#8B2E1A] hover:bg-[#5a180d] text-white px-6 py-3 rounded-full font-semibold shadow-md transition hover:scale-105"
+        >
+          Contact Us
+        </a>
+        <a
+          href="#learn-more"
+          class="border border-[#3A2B1C] hover:bg-[#e9d5b4] text-[#3A2B1C] px-6 py-3 rounded-full font-semibold transition"
+        >
+          Learn More
+        </a>
+      </div>
+
+      <!-- Rating -->
+      <div class="flex items-center justify-center lg:justify-start gap-2 pt-4 text-sm text-[#3A2B1C]">
+        <span class="text-xl text-yellow-500">★★★★★</span>
+        <span class="font-medium">Rated 5 Stars by Fort Worth Homeowners</span>
+      </div>
+    </div>
+
+    <!-- Right Column: Image -->
+   <div class="order-1 lg:order-2 w-full max-w-[600px] mx-auto">
+      <Image
+        src={hvacImage}
+        alt="HVAC Cowboy fixing equipment"
+        class="w-full h-auto object-contain rounded-xl shadow-xl transition-transform duration-300 hover:scale-105"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>
+
+
 
   <!-- Features Widget *************** -->
 
   <Features
     id="features"
-    title="Why choose AstroWind?"
-    subtitle="Each of the following features enhances AstroWind's value proposition."
+    title="Why choose Fort Worth Heat And Air?"
+    subtitle="If it's out there we've worked on it. Proudly serving the Dallas / Fort Worth Metroplex and surrounding areas with over 35 years of field experience. "
     columns={2}
     items={[
       {

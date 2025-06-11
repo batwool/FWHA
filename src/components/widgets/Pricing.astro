@@ -24,10 +24,57 @@ const {
     <div class="grid grid-cols-3 gap-4 dark:text-white sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
       {
         prices &&
-          prices.map(({ title, subtitle, price, period, items, callToAction, hasRibbon = false, ribbonTitle }) => (
+        prices.map(({ title, subtitle, price, period, items, callToAction, hasRibbon = false, ribbonTitle }) => {
+          // Base classes
+          let cardClasses = "rounded-lg backdrop-blur border shadow px-6 py-8 flex w-full max-w-sm flex-col justify-between text-center ";
+          let borderColor = "border-gray-200 dark:border-gray-700 ";
+          // fallback background color explicitly set to white/dark slate
+          let bgColor = "bg-white dark:bg-slate-900 ";
+          let textColor = "text-gray-900 dark:text-white ";
+
+          // Apply red/blue background and light cream text based on title
+          if (title.toLowerCase() === "heating") {
+            bgColor = "bg-[#8B2E1A] ";
+            borderColor = "border-[#A8322A] ";  // lighter red border on card as well
+            textColor = "text-[#f5f1e9] ";
+          } else if (title.toLowerCase() === "cooling") {
+            bgColor = "bg-[#4e6f88] ";
+            borderColor = "border-[#708090] "; // slate grey border for cooling card
+            textColor = "text-[#f5f1e9] ";
+          } else if (title.toLowerCase() === "indoor air quality") {
+            bgColor = "bg-[#F5F1E9] "; // cream background
+            borderColor = "border-[#d7cfc4] "; // soft light border for cream
+            textColor = "text-[#3A2B1C] "; // updated darker brown text
+          }
+
+          cardClasses += borderColor + bgColor + textColor;
+
+          // Button classes depending on card type
+          let buttonClass = "bg-white text-gray-900 border border-gray-300 hover:bg-gray-100 focus:ring-gray-300";
+          if (title.toLowerCase() === "heating") {
+            // warm red button with lighter red border
+            buttonClass = 'bg-[#B33A3A] text-white border-2 border-[#853131] hover:bg-[#8B2E1A] hover:border-[#6D2118] focus:ring-[#8B2E1A]';
+          } else if (title.toLowerCase() === "cooling") {
+            // slate grey button for cooling
+            buttonClass = 'bg-[#708090] text-white border-2 border-[#708090] hover:bg-[#556270] hover:border-[#556270] focus:ring-[#708090]';
+          } else if (title.toLowerCase() === "indoor air quality") {
+            // cream background, use darker gray button for contrast
+            buttonClass = 'bg-[#4a4a4a] text-white border border-[#4a4a4a] hover:bg-[#3a3a3a] focus:ring-[#4a4a4a]';
+          }
+
+          // Change button text to "Learn More" and apply buttonClass
+          const updatedCallToAction = callToAction
+            ? {
+                ...callToAction,
+                text: 'Learn More',
+                class: buttonClass,
+              }
+            : null;
+
+          return (
             <div class="col-span-3 mx-auto flex w-full sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter">
               {price && period && (
-                <div class="rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow px-6 py-8 flex w-full max-w-sm flex-col justify-between text-center">
+                <div class={cardClasses}>
                   {hasRibbon && ribbonTitle && (
                     <div class="absolute right-[-5px] 2xl:right-[-8px] rtl:right-auto rtl:left-[-8px] rtl:2xl:left-[-10px] top-[-5px] 2xl:top-[-10px] z-[1] h-[100px] w-[100px] overflow-hidden text-right">
                       <span class="absolute top-[19px] right-[-21px] rtl:right-auto rtl:left-[-21px] block w-full rotate-45 rtl:-rotate-45 bg-green-700 text-center text-[10px] font-bold uppercase leading-5 text-white shadow-[0_3px_10px_-5px_rgba(0,0,0,0.3)] before:absolute before:left-0 before:top-full before:z-[-1] before:border-[3px] before:border-r-transparent before:border-b-transparent before:border-l-green-800 before:border-t-green-800 before:content-[''] after:absolute after:right-0 after:top-full after:z-[-1] after:border-[3px] after:border-l-transparent after:border-b-transparent after:border-r-green-800 after:border-t-green-800 after:content-['']">
@@ -39,13 +86,11 @@ const {
                     {title && (
                       <h3 class="text-center text-xl font-semibold uppercase leading-6 tracking-wider mb-2">{title}</h3>
                     )}
-                    {subtitle && <p class="font-light sm:text-lg text-gray-600 dark:text-slate-400">{subtitle}</p>}
+                    {subtitle && <p class="font-light sm:text-lg">{subtitle}</p>}
                     <div class="my-8">
                       <div class="flex items-center justify-center text-center mb-1">
-                        <span class="text-5xl">$</span>
                         <span class="text-6xl font-extrabold">{price}</span>
                       </div>
-                      <span class="text-base leading-6 lowercase text-gray-600 dark:text-slate-400">{period}</span>
                     </div>
                     {items && (
                       <ul class="my-8 md:my-10 space-y-2 text-left">
@@ -63,20 +108,20 @@ const {
                       </ul>
                     )}
                   </div>
-                  {callToAction && (
+                  {updatedCallToAction && (
                     <div class={`flex justify-center`}>
-                      {typeof callToAction === 'string' ? (
-                        <Fragment set:html={callToAction} />
+                      {typeof updatedCallToAction === 'string' ? (
+                        <Fragment set:html={updatedCallToAction} />
                       ) : (
-                        callToAction &&
-                        callToAction.href && <Button {...(hasRibbon ? { variant: 'primary' } : {})} {...callToAction} />
+                        updatedCallToAction.href && <Button {...(hasRibbon ? { variant: 'primary' } : {})} {...updatedCallToAction} />
                       )}
                     </div>
                   )}
                 </div>
               )}
             </div>
-          ))
+          );
+        })
       }
     </div>
   </div>

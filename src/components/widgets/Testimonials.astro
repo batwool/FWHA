@@ -19,7 +19,12 @@ const {
 } = Astro.props;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-6xl mx-auto text-[#3A2B1C] ${classes?.container ?? ''}`}
+  bg={bg}
+>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -27,11 +32,27 @@ const {
       testimonials &&
         testimonials.map(({ title, testimonial, name, job, image }) => (
           <div class="flex h-auto intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter">
-            <div class="flex flex-col p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
+            <div class="flex flex-col p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600 bg-[#F5F1E9] dark:bg-slate-800">
+              {/* Star rating */}
+              <div class="flex gap-1 mb-3">
+                {Array(5).fill(0).map((_, i) => (
+                  <svg
+                    key={i}
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="#8B2E1A"
+                    viewBox="0 0 20 20"
+                    stroke="none"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 00.95.69h4.175c.969 0 1.371 1.24.588 1.81l-3.378 2.455a1 1 0 00-.364 1.118l1.287 3.966c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.378 2.455c-.784.57-1.838-.197-1.539-1.118l1.287-3.966a1 1 0 00-.364-1.118L3.628 9.393c-.783-.57-.38-1.81.588-1.81h4.175a1 1 0 00.95-.69l1.286-3.966z" />
+                  </svg>
+                ))}
+              </div>
+
               {title && <h2 class="text-lg font-medium leading-6 pb-4">{title}</h2>}
               {testimonial && (
                 <blockquote class="flex-auto">
-                  <p class="text-muted">" {testimonial} "</p>
+                  <p class="text-muted text-base">" {testimonial} "</p>
                 </blockquote>
               )}
 
@@ -68,7 +89,7 @@ const {
   {
     callToAction && (
       <div class="flex justify-center mx-auto w-fit mt-8 md:mt-12 font-medium">
-        <Button {...callToAction} />
+        <Button {...callToAction} class="bg-[#8B2E1A] hover:bg-[#732515] text-white" />
       </div>
     )
   }

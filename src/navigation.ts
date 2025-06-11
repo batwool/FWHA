@@ -2,120 +2,120 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
+
     {
-      text: 'Homes',
+      text: 'Products',
       links: [
         {
-          text: 'SaaS',
-          href: getPermalink('/homes/saas'),
+          text: 'Product Knowledge',
+          href: getPermalink('/404'),
         },
         {
-          text: 'Startup',
-          href: getPermalink('/homes/startup'),
+          text: 'Heating',
+          href: getPermalink('/404'),
         },
         {
-          text: 'Mobile App',
-          href: getPermalink('/homes/mobile-app'),
+          text: 'Cooling',
+          href: getPermalink('/404'),
         },
         {
-          text: 'Personal',
-          href: getPermalink('/homes/personal'),
+          text: 'Indoor Air Quality',
+          href: getPermalink('/404'),
+        },
+        {
+          text: 'Thermostats & Zoning',
+          href: getPermalink('/404'),
+        },
+        {
+          text: 'Specials / Deals',
+          href: getPermalink('/404'),
         },
       ],
     },
     {
-      text: 'Pages',
+      text: 'Services',
       links: [
         {
-          text: 'Features (Anchor Link)',
-          href: getPermalink('/#features'),
+          text: 'New Installation',
+          href: getPermalink('/404'),
         },
         {
-          text: 'Services',
-          href: getPermalink('/services'),
+          text: 'Upgrade or Replacement',
+          href: getPermalink('/404'),
         },
         {
-          text: 'Pricing',
-          href: getPermalink('/pricing'),
+          text: 'Repair Service',
+          href: getPermalink('/404'),
         },
         {
-          text: 'About us',
-          href: getPermalink('/about'),
+          text: 'Preventative Maintenance',
+          href: getPermalink('/404'),
         },
         {
-          text: 'Contact',
-          href: getPermalink('/contact'),
+          text: 'Service Agreements',
+          href: getPermalink('/404'),
         },
         {
-          text: 'Terms',
-          href: getPermalink('/terms'),
+          text: 'Indoor Air Quality Specialists',
+          href: getPermalink('/404'),
         },
         {
-          text: 'Privacy policy',
-          href: getPermalink('/privacy'),
+          text: 'Air Duct Sealing',
+          href: getPermalink('/404'),
+        },
+        {
+          text: 'Commercial HVAC',
+          href: getPermalink('/404'),
         },
       ],
     },
     {
-      text: 'Landing',
+      text: 'Support',
       links: [
         {
-          text: 'Lead Generation',
-          href: getPermalink('/landing/lead-generation'),
+          text: 'Frequently Asked Questions',
+          href: getPermalink('/404'),
         },
         {
-          text: 'Long-form Sales',
-          href: getPermalink('/landing/sales'),
+          text: 'Troubleshooting',
+          href: getPermalink('/404'),
         },
         {
-          text: 'Click-Through',
-          href: getPermalink('/landing/click-through'),
-        },
-        {
-          text: 'Product Details (or Services)',
-          href: getPermalink('/landing/product'),
-        },
-        {
-          text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
-        },
-        {
-          text: 'Subscription',
-          href: getPermalink('/landing/subscription'),
+          text: 'Product Knowledge',
+          href: getPermalink('/404'),
         },
       ],
     },
     {
-      text: 'Blog',
+      text: 'About',
       links: [
         {
-          text: 'Blog List',
-          href: getBlogPermalink(),
+          text: 'Contact Us',
+          href: getPermalink('/404'),
         },
         {
-          text: 'Article',
-          href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
+          text: 'Reviews',
+          href: getPermalink('/reviews'),
         },
         {
-          text: 'Article (with MDX)',
-          href: getPermalink('markdown-elements-demo-post', 'post'),
+          text: 'Service Area',
+          href: getPermalink('/404'),
         },
         {
-          text: 'Category Page',
-          href: getPermalink('tutorials', 'category'),
+          text: 'History',
+          href: getPermalink('/404'),
         },
         {
-          text: 'Tag Page',
-          href: getPermalink('astro', 'tag'),
+          text: 'Qualifications',
+          href: getPermalink('/404'),
+        },
+        {
+          text: 'Photo Gallery',
+          href: getPermalink('/404'),
         },
       ],
-    },
-    {
-      text: 'Widgets',
-      href: '#',
     },
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
 };
 
 export const footerData = {
@@ -123,45 +123,45 @@ export const footerData = {
     {
       title: 'Product',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
+        { text: 'Product Knowledge', href: '/404' },
+        { text: 'Heating', href: '/404' },
+        { text: 'Cooling', href: '/404' },
+        { text: 'Indoor Air Quality', href: '/404' },
+        { text: 'Thermostats & Zoning', href: '/404' },
+        { text: 'Specials / Deals', href: '/404' },
       ],
     },
     {
-      title: 'Platform',
+      title: 'Services',
       links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
+        { text: 'New Installation', href: '/404' },
+        { text: 'Upgrade or Replacement', href: '/404' },
+        { text: 'Repair Service', href: '/404' },
+        { text: 'Preventative', href: '/404' },
+        { text: 'Service Agreements', href: '/404' },
+        { text: 'Indoor Air Quality Specialists', href: '/404' },
+        { text: 'Air Duct Sealing', href: '/404' },
+        { text: 'Commercial HVAC', href: '/404' },
       ],
     },
     {
       title: 'Support',
       links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
+        { text: 'FAQ', href: '#' },
+        { text: 'Troubleshooting', href: '#' },
+        { text: 'Product Knowledge', href: '#' },
+        { text: 'Contact', href: '/contact' },
       ],
     },
     {
-      title: 'Company',
+      title: 'About',
       links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
+        { text: 'Contact Us', href: '/contact' },
+        { text: 'Reviews', href: '/reviews' },
+        { text: 'Service Area', href: '/404' },
+        { text: 'History', href: '/404' },
+        { text: 'Qualifications', href: '/404' },
+        { text: 'Photo Gallery', href: '/404' },
       ],
     },
   ],
@@ -170,14 +170,11 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
+    { ariaLabel: 'BBB', icon: 'tabler:shield', href: 'https://www.bbb.org/us/tx/fort-worth/profile/commercial-air-conditioning-contractors/fort-worth-heat-air-inc-0825-235975739' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/onwidget/astrowind' },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/FortWorthHeatandAir/' },
   ],
   footNote: `
-    <img class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm" src="https://onwidget.com/favicon/favicon-32x32.png" alt="onWidget logo" loading="lazy"></img>
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
+  Fort Worth Heat & Air. All rights reserved.
   `,
 };

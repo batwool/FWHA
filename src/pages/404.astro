@@ -2,23 +2,69 @@
 import Layout from '~/layouts/Layout.astro';
 import { getHomePermalink } from '~/utils/permalinks';
 
-const title = `Error 404`;
+const title = `Coming Soon - Under Construction`;
 ---
 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+  section {
+    background-color: #F6E4C7;
+    color: #3A2B1C;
+    font-family: 'Playfair Display', serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 4rem 1rem;
+  }
+
+  h2 {
+    font-size: 8rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    letter-spacing: 0.15em;
+  }
+
+  p.lead {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  p.subtext {
+    font-size: 1.25rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+  }
+
+  a.btn {
+    background-color: #3A2B1C;
+    color: #F6E4C7;
+    padding: 0.75rem 2rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  a.btn:hover {
+    background-color: #2B1F13;
+  }
+
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+</style>
+
 <Layout metadata={{ title }}>
-  <section class="flex items-center h-full p-16">
-    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-      <div class="max-w-md text-center">
-        <h2 class="mb-8 font-bold text-9xl">
-          <span class="sr-only">Error</span>
-          <span class="text-primary">404</span>
-        </h2>
-        <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
-        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          But dont worry, you can find plenty of other things on our homepage.
-        </p>
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
-      </div>
+  <section>
+    <div class="container">
+      <h2>404</h2>
+      <p class="lead">Site Under Construction</p>
+      <p class="subtext">We're working hard to bring you something amazing. Stay tuned!</p>
+      <a rel="noopener noreferrer" href={getHomePermalink()} class="btn">Back to Homepage</a>
     </div>
   </section>
 </Layout>

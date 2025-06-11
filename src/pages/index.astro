@@ -1,399 +1,295 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import { Image } from 'astro:assets';
+import hvacImage from 'src/assets/images/hopecowboybg.png';
+import longhornImage from 'src/assets/images/longhornnobg.png';
+import parchmentTexture from 'src/assets/images/parchment.png';
+import CustomStyles from '~/components/CustomStyles.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+
+
+
+
+import { headerData } from '~/navigation';
 import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
-  ignoreTitleTemplate: true,
+  title: 'SaaS Landing Page',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Request A Service',
+          href: '/contact',
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
 
-  <Hero
-    actions={[
+  <!-- Hero.astro or inside your page -->
+<section
+  class="text-[#3A2B1C] py-16 px-4 sm:px-8 lg:px-20 bg-[url('/src/assets/images/paper-texture.png')] bg-repeat"
+>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+    
+    <!-- Left Column: Text -->
+    <div class="order-2 lg:order-1 space-y-6 text-center lg:text-left" data-aos="fade-up" data-aos-duration="800">
+      <!-- Texas Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#8B2E1A] text-white rounded-full shadow-md text-xs uppercase tracking-widest">
+        <span class="text-lg">★</span>
+        Fort Worth Proud • Est. 2013
+      </div>
+
+      <!-- Heading -->
+      <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight text-shadow-md">
+        Fort Worth <br />
+        <span style="color: #8B2E1A">Heat</span> And   <span style="color: #4e6f88
+">Air</span>
+      </h1>
+
+      <!-- Paragraph -->
+      <p class="text-lg sm:text-2xl text-[#3A2B1C]/90">
+        Serving the Fort Worth community with honest, expert HVAC care.
+Local Air Conditioning and Heating Solutions – Fast, Friendly, and Fair.
+      </p>
+
+      <!-- Call to Action Buttons -->
+      <div class="flex gap-4 flex-wrap justify-center lg:justify-start">
+        <a
+          href="/contact"
+          class="bg-[#8B2E1A] hover:bg-[#5a180d] text-white px-6 py-3 rounded-full font-semibold shadow-md transition hover:scale-105"
+        >
+          Contact Us
+        </a>
+        <a
+          href="#learn-more"
+          class="border border-[#3A2B1C] hover:bg-[#e9d5b4] text-[#3A2B1C] px-6 py-3 rounded-full font-semibold transition"
+        >
+          Learn More
+        </a>
+      </div>
+
+      <!-- Rating -->
+      <div class="flex items-center justify-center lg:justify-start gap-2 pt-4 text-sm text-[#3A2B1C]">
+        <span class="text-xl text-yellow-500">★★★★★</span>
+        <a href="/reviews" class="font-medium hover:underline">
+    Rated 5 Stars by Fort Worth Homeowners
+  </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Image -->
+   <div class="order-1 lg:order-2 w-full max-w-[600px] mx-auto">
+      <Image
+        src={hvacImage}
+        alt="HVAC Cowboy fixing equipment"
+        class="w-full h-auto object-contain rounded-xl transition-transform duration-300 hover:scale-105"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>
+
+  <!-- Pricing Widget ******************* -->
+
+ <Pricing
+    title="Learn About Our Services"
+    prices={[
       {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        title: 'Heating',
+        subtitle: 'Access to core features and a wide range of templates',
+        price: '✸',
+        period: '/ month',
+        callToAction: {
+          target: '_blank',
+          text: 'Get Started for Free',
+          href: '#',
+        },
       },
-      { text: 'Learn more', href: '#features' },
+      {
+        title: 'Cooling',
+        subtitle: 'Premium templates and advanced customization',
+        price: '❆',
+        period: '/ Month',
+        callToAction: {
+          target: '_blank',
+          text: 'Learn More',
+          href: '#',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'SUMMER',
+      },
+      {
+        title: 'Indoor Air Quality',
+        subtitle: 'Tailored solutions for large-scale projects',
+        price: '〰',
+        period: '/ Month',
+        callToAction: {
+          target: '_blank',
+          text: 'Unlock Enterprise Features',
+          href: '#',
+        },
+      },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
-  >
-    <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro 5.0</span> + Tailwind CSS
-    </Fragment>
+  />
 
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 5.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
-    </Fragment>
-  </Hero>
 
-  <!-- Note Widget ******************* -->
-
-  <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
 
   <!-- Features Widget *************** -->
 
-  <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023 and 2024."
-    items={[
+<Features
+  id="features"
+  title="Why People Choose Us"
+  subtitle="Proudly serving the Dallas / Fort Worth Metroplex and surrounding areas with over 35 years of trusted experience."
+  columns={2}
+  items={[
+    {
+      title: 'Residential Heating & Cooling',
+      description:
+        'Complete HVAC solutions for homes, including AC installation, furnace repair, and seasonal maintenance to keep your family comfortable year-round.',
+      icon: 'tabler:home',
+    },
+    {
+      title: 'Commercial HVAC Systems',
+      description:
+        'Expert installation and servicing of rooftop units, chillers, and VAV systems for businesses, warehouses, and large commercial properties.',
+      icon: 'tabler:building-skyscraper',
+    },
+    {
+      title: '24/7 Emergency HVAC Repair',
+      description:
+        'Fast, responsive emergency service—any time, any day—to get your system back up and running when it matters most.',
+      icon: 'tabler:alert-triangle',
+    },
+    {
+      title: 'Indoor Air Quality Solutions',
+      description:
+        'From air purifiers to humidity control, we improve your indoor air quality to create a healthier home or workspace.',
+      icon: 'tabler:wind',
+    },
+    {
+      title: 'Routine Maintenance Plans',
+      description:
+        'Protect your investment and prevent costly breakdowns with seasonal inspections, tune-ups, and filter replacements.',
+      icon: 'tabler:calendar-check',
+    },
+    {
+      title: 'Certified HVAC Technicians',
+      description:
+        'Our licensed, factory-trained technicians are equipped to handle all makes and models with precision and professionalism.',
+      icon: 'tabler:certificate',
+    },
+  ]}
+/>
+
+
+  <!-- Testimonials Widget *********** -->
+
+  <Testimonials
+    title="See What Your Neighbors Are Saying"
+    testimonials={[
       {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
+        testimonial: `Fort Worth Heat & Air replaced my old AC systems in both my home and studio apartment. Service, workmanship, and product quality were all excellent. I recommend them to our friends and family without hesitation.`,
+        name: 'Robert Edmondson',
+        job: 'Customer',
       },
       {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
+        testimonial: `Special thanks to Mike for the help with our AC and getting us cool so quickly in this Texas heat! Great company to work with. We highly recommend!`,
+        name: 'Jennifer Overfield',
+        job: 'Customer',
       },
       {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
+        testimonial:'My AC stopped working and these guys were out there the next day. They fixed it on the spot and were very professional and resonably priced. They have definitely earned my business and I can not reccomend them enough!',
+        name: 'Zac Treadway',
+        job: 'Customer',
       },
     ]}
+    callToAction={{
+      target: '_self',
+      text: 'More Reviews',
+      href: '/reviews',
+      icon: 'tabler:chevron-right',
+      class: 'bg-[#8B2E1A] hover:bg-[#732515] text-white px-6 py-3 rounded-md'
+    }}
   />
 
   <!-- Content Widget **************** -->
 
-  <Content
-    isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
-    items={[
-      {
-        title: 'Built on top of Astro 5.0',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
-      },
-      {
-        title: 'Styled using Tailwind CSS',
-        description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
-      },
-      {
-        title: 'Cross-browser compatibility',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+<Content
+  isReversed
+  items={[
+    {
+      title: "Why Fort Worth Heat & Air",
+      description: `
+        <p class="text-brown text-lg leading-relaxed mb-4">
+          Proudly serving Fort Worth and nearby Texas communities with trusted heating, cooling, and indoor air quality services since day one.
+        </p>
+        <p class="text-brown text-lg leading-relaxed mb-4">
+          Here in Texas, we believe in good, honest work — and that means showing up when you call, answering your questions clearly, and standing behind every job we do. No gimmicks, no “sales tricks,” just real expertise from true heating and cooling pros who know how to keep your home comfortable year-round.
+        </p>
+        <p class="text-brown text-lg leading-relaxed mb-4">
+          Our certified technicians specialize in heating, cooling, and indoor air quality — ensuring you breathe easier, stay cozy in winter, and cool down in the blazing Texas heat. With our in-house training and commitment to honest service, you get peace of mind and a job done right the first time.
+        </p>
+        <p class="text-brown text-lg leading-relaxed">
+          Got a problem? Whether it’s your heater, AC, or indoor air system acting up, Fort Worth Heat and Air has your back. Call us today and experience Texas-style care and expertise that feels like family.
+        </p>
+      `,
+    },
+  ]}
+  image={{
+    src: longhornImage,
+    alt: 'Heating and Cooling Services',
+  }}
+>
+  <Fragment slot="content" />
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Content>
+
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Request Your Service Today!"
+    subtitle="We're always happy to help. The best way to contact us is through phone or email!"
+    callToAction={{
+      text: 'Contact us',
+      href: '/contact',
     }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
     items={[
       {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
+        title: 'Email us',
+        description: 'info@fortworthheatandair.com',
+        icon: 'tabler:mail',
       },
       {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
+        title: 'Call us',
+        description: '(817)-800-0340',
+        icon: 'tabler:headset',
       },
       {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+        title: 'Location',
+        description: '308 N Beach St, Fort Worth TX',
+        icon: 'tabler:brand-twitter',
       },
     ]}
   />
 
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
-    </Fragment>
-  </CallToAction>
 </Layout>

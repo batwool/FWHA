@@ -1,8 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
   title: 'Contact',
@@ -10,70 +8,78 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <!-- Top spacer + heading with icon -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-24 py-8 flex items-center justify-center space-x-4">
+    <!-- Example icon using an SVG (simple mail icon) -->
+    <h1 class="text-4xl font-extrabold text-[#3A2B1C]"><br><br>Contact Us</h1>
+  </section>
 
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
+  <!-- Side-by-side Intro Text + Contact Info -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-24 py-16">
+    <div class="flex flex-col md:flex-row md:space-x-20 gap-y-12">
 
-  <!-- Features2 Widget ************** -->
+      <!-- Intro Text Left with rounded background -->
+      <div class="md:w-1/2 bg-[#F9F6F0] rounded-xl p-10 flex flex-col justify-center text-[#3A2B1C] text-lg leading-relaxed shadow-md">
+        <h1 class="text-4xl font-bold mb-6">Get In Touch With HVAC Experts</h1>
+        <p>
+          When you choose us for your heating and cooling needs, you're getting dependable HVAC service backed by real Texas pride. Whether it's a sweltering summer or a chilly North Texas cold snap, our experienced techs have the tools and know-how to keep your home comfortable year-round.
+        </p>
+        <p class="mt-6">
+          Need help? We're here 24/7 to answer questions, schedule service, or talk through your options. Contact Fort Worth Heat and Air today — your comfort starts here.
+        </p>
+      </div>
 
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+      <!-- Contact Info Right with red rounded boxes -->
+      <div class="md:w-1/2 flex flex-col justify-center space-y-10">
+
+        <div class="bg-[#8B2E1A] rounded-xl p-8 shadow-lg text-white">
+          <h2 class="text-4xl font-bold mb-2">Phone</h2>
+          <a href="tel:+18178000340" class="text-2xl hover:underline inline-block">(817) 800-0340</a>
+        </div>
+
+        <div class="bg-[#8B2E1A] rounded-xl p-8 shadow-lg text-white">
+          <h2 class="text-4xl font-bold mb-2">Email</h2>
+          <a href="mailto:info@fortworthheatandair.com" class="text-2xl hover:underline inline-block">info@fortworthheatandair.com</a>
+        </div>
+
+        <div class="bg-[#8B2E1A] rounded-xl p-8 shadow-lg text-white">
+          <h2 class="text-4xl font-bold mb-2">Location</h2>
+          <a
+            href="https://g.co/kgs/UzkgKDj"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-2xl hover:underline inline-block"
+          >
+            308 N Beach St<br />
+            Fort Worth, TX
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Form Full Width (commented out for now) -->
+  <!--
+  <section class="max-w-4xl mx-auto px-6 sm:px-10 lg:px-24 pb-24">
+    <ContactUs
+      id="form"
+      title="Send Us a Message"
+      subtitle="We usually respond within 1 business day. For faster help, call or email directly."
+      inputs={[
+        { type: 'text', name: 'name', label: 'Name' },
+        { type: 'email', name: 'email', label: 'Email' },
+      ]}
+      textarea={{ label: 'Message' }}
+      disclaimer={{
+        label:
+          'By submitting this form, you agree to our terms and privacy policy.',
+      }}
+      description=""
+    />
+  </section>
+  -->
+
 </Layout>
